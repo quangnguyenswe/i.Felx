@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import type { Company } from "@/constants/company";
+import Link from "next/link";
 
 export function CompanyCard({
   title,
@@ -74,7 +75,7 @@ export function CompanyCard({
       {links && links.length > 0 && (
         <div className="mt-2 flex flex-row flex-wrap items-start gap-2">
           {links?.map((link, idx) => (
-            <a href={link.href} target="_blank" key={idx}>
+            <Link href={link.href} target="_blank" key={idx}>
               <Badge
                 key={idx}
                 title={link.title}
@@ -84,7 +85,7 @@ export function CompanyCard({
                 <link.icon className="size-3" />
                 {link.title}
               </Badge>
-            </a>
+            </Link>
           ))}
         </div>
       )}

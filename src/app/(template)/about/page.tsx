@@ -143,7 +143,7 @@ export default function AboutPage() {
                       enableHover
                     >
                       {firstHalf.map((item, index) => (
-                        <a
+                        <Link
                           key={item.name}
                           aria-label="Skills Link"
                           data-id={`card-${index}`}
@@ -164,7 +164,7 @@ export default function AboutPage() {
                             </div>
                             <ArrowRight className="ml-4 h-5 w-5 transition-colors duration-300 group-hover:text-foreground" />
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </AnimatedBackground>
                   </div>
@@ -180,7 +180,8 @@ export default function AboutPage() {
                       enableHover
                     >
                       {secondHalf.map((item, index) => (
-                        <a
+                        <Link
+                          key={item.name}
                           aria-label="Skills Link"
                           data-id={`card-${half + index}`}
                           href={`${item.link}`}
@@ -200,7 +201,7 @@ export default function AboutPage() {
                             </div>
                             <ArrowRight className="ml-4 h-5 w-5 transition-colors duration-300 group-hover:text-foreground" />
                           </div>
-                        </a>
+                        </Link>
                       ))}
                     </AnimatedBackground>
                   </div>
