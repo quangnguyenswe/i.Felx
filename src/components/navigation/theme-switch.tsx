@@ -1,4 +1,6 @@
+"use client";
 import { Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -10,21 +12,11 @@ export default function ThemeSwitch({
   ...props
 }: Omit<React.ComponentProps<typeof Button>, "size" | "variant">) {
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<"light" | "dark" | "system">("light");
+  const { setTheme, resolvedTheme } = useTheme();
 
   useEffect(() => {
-    const isDarkMode = document.documentElement.classList.contains("dark");
-    setTheme(isDarkMode ? "dark" : "light");
     setMounted(true);
   }, []);
-
-  useEffect(() => {
-    const isDark =
-      theme === "dark" ||
-      (theme === "system" &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches);
-    document.documentElement.classList[isDark ? "add" : "remove"]("dark");
-  }, [theme]);
 
   if (!mounted) {
     return <Skeleton className={cn("h-8 w-16 rounded-full px-6", className)} />;
@@ -36,12 +28,12 @@ export default function ThemeSwitch({
       size="sm"
       variant="outline"
       onClick={(e) => {
-        setTheme(theme === "dark" ? "light" : "dark");
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
         onClick?.(e);
       }}
       {...props}
     >
-      {theme === "dark" ? (
+      {resolvedTheme === "dark" ? (
         <>
           <Moon size={13.5} suppressHydrationWarning />
           <span className="sr-only">Switch to light mode</span>
