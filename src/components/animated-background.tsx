@@ -21,7 +21,6 @@ export type AnimatedBackgroundProps = {
   enableHover?: boolean;
 };
 
-//TODO: Fix the animation when rapidly switching between items (the background should not disappear but transition smoothly to the new item)
 export function AnimatedBackground({
   children,
   defaultValue,

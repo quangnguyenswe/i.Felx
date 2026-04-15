@@ -150,7 +150,7 @@ export default function AboutPage() {
                           href={`${item.link}`}
                           rel="noopener noreferrer"
                           target="_blank"
-                          className="block rounded-lg hover:bg-primary/5 "
+                          className="block"
                         >
                           <div className="group flex cursor-pointer items-center justify-between px-6 py-6">
                             <div className="flex items-center gap-8">
@@ -187,7 +187,7 @@ export default function AboutPage() {
                           href={`${item.link}`}
                           rel="noopener noreferrer"
                           target="_blank"
-                          className="block rounded-lg hover:bg-primary/5 "
+                          className="block"
                         >
                           <div className="group flex cursor-pointer items-center justify-between px-6 py-6">
                             <div className="flex items-center gap-8">
@@ -237,7 +237,7 @@ export default function AboutPage() {
               {contacts.map((item, index) => (
                 <Link
                   key={item.name}
-                  className="block w-full rounded-full border-[0.5px] border-separator/20 border-dashed px-5 pt-2.5 pb-1.5 md:w-2/5 hover:bg-primary/10 transition-colors duration-300"
+                  className="block w-full rounded-full border-[0.5px] border-separator/20 border-dashed px-5 pt-2.5 pb-1.5 md:w-2/5"
                   data-id={`contact-card-${index}`}
                   href={item.link}
                   target="_blank"
