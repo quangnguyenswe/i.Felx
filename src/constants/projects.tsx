@@ -23,7 +23,7 @@ export const productionProjects: ProjectItem[] = [
     title: "VTI Workplace",
     description:
       "The all-in-one social media platform for enterprises, that combines chat, video, groups and more, to enhance communication and collaboration within organizations.",
-    imageId: "/images/workplace.jpg",
+    imageId: "/static/images/workplace.jpg",
     badge: [
       <Badge key="Workplace">Workplace</Badge>,
       <Badge key="social-media">Social Media</Badge>,
@@ -34,7 +34,7 @@ export const productionProjects: ProjectItem[] = [
     title: "VCopilot",
     description:
       "An AI-powered coding assistant that provides code suggestions, planning, and automate development workflows. It understands your entire codebase and can work across multiple files and tools to get things done.",
-    imageId: "/images/copilot.png",
+    imageId: "/static/images/copilot.png",
     badge: [
       <Badge key="ai">AI</Badge>,
       <Badge key="copilot">Copilot</Badge>,
@@ -45,7 +45,7 @@ export const productionProjects: ProjectItem[] = [
     title: "Vlearning",
     description:
       "A learning platform used internally at VTI for training and development. It provides a comprehensive guides, best practices, projects and interactive learning roadmaps to help employees grow their skills.",
-    imageId: "/images/e-learning.jpg",
+    imageId: "/static/images/e-learning.jpg",
     badge: [
       <Badge key="learning">Learning</Badge>,
       <Badge key="internal">Internal</Badge>,
@@ -64,8 +64,8 @@ export const sideProjects: ProjectItem[] = [
   {
     title: "Personal Portfolio Website",
     description:
-      "My personal portfolio website built with Astro, showcasing my projects, skills, and sharing my software development journey.",
-    imageId: "/images/portfolio.png",
+      "My personal portfolio website built with Next.js, showcasing my projects, skills, and sharing my software development journey.",
+    imageId: "/static/images/portfolio.png",
     badge: [
       <Badge key="portfolio">Portfolio</Badge>,
       <Badge key="personal">Personal</Badge>,
