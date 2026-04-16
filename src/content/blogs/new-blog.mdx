@@ -1,0 +1,196 @@
+---
+title: "Adding new posts to Astro Boilerplate"
+description: "Some rules & recommendations for creating or adding new posts to Astro Boilerplate."
+author: "Felix Ng"
+createdAt: 2026-04-16
+tags: ["personal", "guide"]
+image:
+  url: https://images.pexels.com/photos/159618/still-life-school-retro-ink-159618.jpeg
+  description: Photo by <a class="underline" href="https://www.pexels.com/photo/brown-wooden-desk-159618/">Pixabay</a>
+---
+
+# Complete Guide to Creating Blog Posts in Astro Boilerplate
+
+Learn how to create compelling blog posts using the Astro Boilerplate theme with proper markdown structure, frontmatter configuration, and best practices.
+
+## Quick Start Checklist
+
+Before you begin writing, ensure you have:
+
+- [ ] Created a new `.md` file in `src/data/blogs/`
+- [ ] Added required frontmatter fields (`title`, `description`, `date`)
+- [ ] Chosen appropriate tags for your content
+- [ ] Prepared any images you'll use
+
+## Creating Your Blog Post File
+
+### File Location and Naming
+
+Create your markdown file in the `src/content/blogs/` directory. Use descriptive filenames with hyphens for separation:
+
+```bash title="File Naming Examples"
+# Good examples
+src/content/blogs/getting-started-with-astro.md
+src/content/blogs/advanced-seo-techniques.md
+src/content/blogs/deployment-strategies.md
+
+# Avoid these
+src/content/blogs/post1.md
+src/content/blogs/My New Post.md (spaces)
+```
+
+## Frontmatter Configuration Guide
+
+The frontmatter section controls how your post appears and behaves. Here's the complete structure based on your theme:
+
+```yaml title="Frontmatter Example"
+---
+title: "Your Engaging Post Title"
+description: "A compelling description that summarizes your post content"
+author: "Your Name"
+createdAt: 2025-09-27
+image:
+  url: "https://example.com/path-to-your-image.jpg"
+  description: "A descriptive caption for the image"
+tags: ["tag1", "tag2", "tag3"]
+---
+```
+
+### Required Fields Explained
+
+| Field         | Purpose                              | Example                                                                   |
+| ------------- | ------------------------------------ | ------------------------------------------------------------------------- |
+| `title`       | Main heading and browser tab title   | "Complete Guide to Astro Components"                                      |
+| `description` | Post summary for excerpts and meta   | "Learn how to build reusable components in Astro with TypeScript support" |
+| `createdAt`   | Publication date (YYYY-MM-DD format) | `2025-01-15`                                                              |
+
+## Content Structure Best Practices
+
+### Heading Hierarchy
+
+Use proper heading structure for accessibility and SEO:
+
+```markdown title="Headings"
+# Post Title (automatically from frontmatter - don't repeat)
+
+## Main Section
+
+### Subsection
+
+#### Detail Level
+```
+
+The theme will automatically generate navigation links from your headings.
+
+### Engaging Introduction
+
+Start with a hook that addresses the reader's problem:
+
+```markdown title="Introduction"
+Are you struggling with slow page loads? In this guide, you'll discover
+5 proven techniques that reduced our site's load time by 60%.
+```
+
+## Working with Images
+
+### Method 1: Optimized Images (Recommended)
+
+Store images in `src/assets/` for automatic optimization:
+
+```markdown title="Optimized Image"
+![Descriptive alt text](@/assets/images/example.jpg)
+```
+
+### Method 2: Static Images
+
+For unoptimized images, use the `public/` directory:
+
+```markdown title="Static Image"
+![Alt text](/assets/images/example.jpg)
+```
+
+### Image Best Practices
+
+- **Alt text**: Always provide descriptive alt text for accessibility
+- **File size**: Compress images using [TinyPNG](https://tinypng.com/) or similar tools
+- **Dimensions**: Use consistent aspect ratios for visual harmony
+- **Format**: Use WebP or modern formats when possible
+
+## Advanced Formatting
+
+### Code Blocks with Syntax Highlighting
+
+The theme uses Shiki for beautiful code highlighting:
+
+```markdown title="javascript"
+// Example JavaScript code
+function greetUser(name) {
+  return `Hello, ${name}!`;
+}
+```
+
+### Callout Boxes
+
+Use blockquotes for important information:
+
+```markdown title="Pro Tip"
+> 💡 **Pro Tip:** Always test your changes in a local environment before deploying.
+
+> ⚠️ **Warning:** This feature requires Astro 4.0 or higher.
+```
+
+## Content Guidelines
+
+### Writing Style
+
+- **Use active voice**: "Configure the settings" instead of "Settings should be configured"
+- **Be conversational**: Write as if explaining to a colleague
+- **Include examples**: Show, don't just tell
+- **Break up text**: Use lists, headings, and short paragraphs
+
+### SEO Optimization
+
+- **Keyword placement**: Include primary keywords in title, description, and first paragraph
+- **Internal linking**: Link to other relevant posts in your blog
+- **External links**: Link to authoritative sources when referencing information
+- **Image optimization**: Use descriptive filenames and alt text
+
+## Quality Checklist
+
+Before publishing, verify:
+
+- [ ] Frontmatter fields are complete and accurate
+- [ ] Headings follow proper hierarchy (H2 → H3 → H4)
+- [ ] Images have descriptive alt text
+- [ ] Code blocks specify the correct language
+- [ ] Links open correctly
+- [ ] Content is proofread for grammar and clarity
+- [ ] Tags are relevant and consistent with other posts
+
+## Common Pitfalls to Avoid
+
+❌ **Don't:**
+
+- Use the same title in frontmatter and as first heading
+- Forget alt text for images
+- Make paragraphs too long (3-4 sentences max)
+- Use generic descriptions like "This post covers..."
+- Neglect mobile formatting
+
+✅ **Do:**
+
+- Write compelling, specific titles
+- Use bullet points and numbered lists
+- Include practical examples
+- Test on different screen sizes
+- Update related posts when publishing
+
+## Publishing Your Post
+
+1. **Preview locally**: Run your development server to review formatting
+2. **Check responsiveness**: Ensure content looks good on mobile devices
+3. **Validate links**: Verify all external and internal links work
+4. **Review SEO**: Confirm title, description, and tags are optimized
+5. **Deploy**: Push your changes to trigger the build process
+
+Your blog post will automatically appear in the posts listing and be included in your site's RSS feed and sitemap.
