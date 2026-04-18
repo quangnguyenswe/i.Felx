@@ -51,7 +51,6 @@ export default function AboutPage() {
           />
           <div className="md:mr-8 xl:max-w-3/5">
             <span className="relative">
-              <h4 className="font-medium text-xl">hey there, felix's here.</h4>
               <div className="absolute bottom-0 h-4 w-full bg-linear-to-b from-transparent to-background/60"></div>
             </span>
             <div className="text-sm leading-relaxed md:text-base">
