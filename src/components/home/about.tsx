@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import Link from "next/link";
 import { PlusSeparator } from "../ui/plus-separator";
 import dynamic from "next/dynamic";
@@ -13,10 +13,10 @@ export default function AboutSection() {
           <div className="py-24 xl:max-w-7/11">
             <h1 className="text-lg md:text-5xl mb-4">Hi there,</h1>
             <p>
-              i&apos;m Felix. i&apos;m a software developer from Vietnam with a
-              strong foundation in full-stack development, and a passion for
-              building scalable and efficient applications. i have experience
-              working with diverse technologies and framworks.
+              i&apos;m Felix. i&apos;m a software developer from Vietnam with
+              experience in full-stack development, and a passion for building
+              scalable and efficient applications. i have experience working
+              with diverse technologies and framworks.
             </p>
             <br />
             <p>

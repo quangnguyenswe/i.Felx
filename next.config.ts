@@ -5,6 +5,9 @@ import { createMDX } from "fumadocs-mdx/next";
 const config: NextConfig = {
   serverExternalPackages: ["typescript", "shiki"],
   reactStrictMode: true,
+  images: {
+    remotePatterns: [],
+  },
 };
 
 const withMDX = createMDX({

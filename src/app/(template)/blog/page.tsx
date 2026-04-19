@@ -22,7 +22,7 @@ export default function BlogPage() {
       <HeaderBanner />
       <section className="w-full border-separator/10 border-b">
         <div className="inner relative grid grid-cols-1 gap-2 border-separator/10 border-x px-2 py-16 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
+          {posts.slice(0, 3).map((post) => (
             <Link
               key={post.url}
               href={post.url}
@@ -30,11 +30,10 @@ export default function BlogPage() {
             >
               <span className="relative h-64 w-full p-0!">
                 <Image
-                  src={post.data.image?.url ?? "/assets/blog/default.png"}
+                  src={post.data.image?.url ?? "/static/images/portfolio.png"}
                   alt={post.data.title}
                   className={cn(
                     "rounded-xs object-cover h-64",
-                    !post.data.image && "invert-100 dark:invert-0",
                   )}
                   fill
                   unoptimized
@@ -75,6 +74,30 @@ export default function BlogPage() {
             main={{ className: "z-20" }}
           />
         </div>
+        {posts.length > 3 && (
+          <div className="inner relative grid grid-cols-1 gap-2 border-separator/10 border-x px-2 py-16 border-t mx-auto">
+            <div className="w-full sm:max-w-[70%] mx-auto">
+              <h2 className="text-2xl font-bold mb-4">More Posts</h2>
+              <div>
+                {posts.slice(3).map((post) => (
+                  <Link
+                    className="text-md group flex items-center justify-between border-b py-2 text-primary no-underline hover:text-blue-400"
+                    key={post.url}
+                    href={post.url}
+                  >
+                    <span className="text-sm transition-transform group-hover:translate-x-2 md:text-base">
+                      {post.data.title}
+                    </span>
+
+                    <span className="block text-xs text-muted-foreground">
+                      &raquo;
+                    </span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
     </main>
   );

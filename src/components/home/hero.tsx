@@ -23,12 +23,10 @@ export default function HeroSection() {
       >
         <span className="flex flex-col *:transition-all lg:pb-64">
           <h1 className="font-medium font-montreal text-3xl sm:text-4xl lg:text-[2.5rem] lg:leading-14">
-            Hows it goin', Felix here 👋
+            Hows it goin', I'm Felix 👋
           </h1>
           <p className="max-w-112.5 text-xs leading-4 sm:text-sm lg:text-base lg:leading-5">
-            a software developer with a strong foundation in full-stack
-            development, and a passion for building scalable and efficient
-            applications.
+            a software developer with a passion for building and exploring new things (not just in code).
           </p>
         </span>
         <span className="flex w-full justify-center md:w-auto md:justify-end">

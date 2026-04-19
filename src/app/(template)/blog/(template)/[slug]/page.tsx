@@ -65,17 +65,19 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
             {/* <ShareButton url={page.url} /> */}
           </div>
         </section>
-        <Image
-          src={image.data?.url ?? "/assets/blog/default.png"}
-          alt="Blog Post Image"
-          width={image.width}
-          height={image.height}
-          className={cn(
-            "mx-auto mb-2 max-w-full rounded-md md:max-w-prose",
-            image.invertable && "invert-100 dark:invert-0",
-          )}
-          unoptimized
-        />
+        {image.data?.url && (
+          <Image
+            src={image.data?.url ?? "/assets/blog/default.png"}
+            alt="Blog Post Image"
+            width={image.width}
+            height={image.height}
+            className={cn(
+              "mx-auto mb-2 max-w-full rounded-md md:max-w-prose",
+              image.invertable && "invert-100 dark:invert-0",
+            )}
+            unoptimized
+          />
+        )}
         {image.data && image.data?.description && (
           <p
             className="text-center text-sm text-muted-foreground"
