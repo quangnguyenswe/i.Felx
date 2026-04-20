@@ -8,7 +8,7 @@ import { getMDXComponents } from "@/components/markdown/mdx-components";
 // import { createMetadataBlog, getBlogPageImage } from "@/lib/metadata";
 import { blog } from "@/lib/source";
 import { cn } from "@/lib/utils";
-// import { ShareButton } from "./page.client";
+import { ShareButton } from "@/components/share-button";
 
 export default async function Page(props: PageProps<"/blog/[slug]">) {
   const params = await props.params;
@@ -64,7 +64,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
             </div>
           </div>
           <div className="not-prose mb-8 flex flex-row gap-2">
-            {/* <ShareButton url={page.url} /> */}
+            <ShareButton description={page.data.title} />
           </div>
         </section>
         {image.data?.url && (
