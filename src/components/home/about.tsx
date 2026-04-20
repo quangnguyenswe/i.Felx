@@ -1,7 +1,9 @@
 "use client";
+
 import Link from "next/link";
 import { PlusSeparator } from "../ui/plus-separator";
 import dynamic from "next/dynamic";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 const SkillsSection = dynamic(() => import("./skills"), { ssr: false });
 
@@ -13,25 +15,44 @@ export default function AboutSection() {
           <div className="py-24 xl:max-w-7/11">
             <h1 className="text-lg md:text-5xl mb-4">Hi there,</h1>
             <p>
-              i&apos;m Felix. i&apos;m a software developer from Vietnam with
-              experience in full-stack development, and a passion for building
-              scalable and efficient applications. i have experience working
-              with diverse technologies and framworks.
+              i&apos;m a software developer from Vietnam. And for my real name,
+              I&apos;m sure you will find it difficult to pronounce so just call
+              me{" "}
+              <Tooltip>
+                <TooltipTrigger
+                  render={
+                    <span className="underline cursor-pointer">Felix</span>
+                  }
+                />
+                <TooltipContent>
+                  <p>trust me, it&apos;s easier this way 😉</p>
+                </TooltipContent>
+              </Tooltip>
+              . i love building things and constantly learning and exploring new
+              technologies to stay up-to-date with the latest trends in the
+              industry.
             </p>
             <br />
             <p>
-              As a developer, i am constantly learning and exploring new
-              technologies to stay up-to-date with the latest trends in the
-              industry.
+              i start my journey thinking being a frontend developer is all i
+              want to do. Till i discovered the magic behind the scenes (server
+              infrastructure, system design, ...). and guess what? now i do
+              full-stack development and i love it. i enjoy the process of
+              building and learning new things, and i am always looking for new
+              challenges to push myself to grow as a developer.
             </p>
           </div>
           <div className="relative mx-auto mb-2 flex w-full max-w-sm items-center justify-center md:mb-6 lg:mb-12 xl:mb-0">
             <div className="flex flex-col justify-between rounded-xs border bg-muted/50 p-4 shadow-sm dark:bg-muted/20">
               <h2 className="font-semibold text-lg">Philosophy</h2>
               <p className="mt-1 leading-tight">
-                I strongly believe that the power of technology to create
-                positive change, and I am always eager to learn and grow as a
-                developer.
+                As developers, we do it not because it is easy, but because we
+                thought it would be easy.
+              </p>
+              <br />
+              <p>
+                Yeah we spend 6 hours to automate a 5 minutes task, but it is
+                fun and rewarding. right? right.
               </p>
               <Link
                 href="/about"

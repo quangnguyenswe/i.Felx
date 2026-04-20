@@ -17,6 +17,8 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
   if (!page) notFound();
   const { body: Mdx, toc } = await page.data.load();
 
+  const filteredToc = toc.filter((item) => item.depth <= 2);
+
   const image = {
     data: page.data.image, // || getBlogPageImage(page).url,
     invertable: !page.data.image,
@@ -26,7 +28,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
 
   return (
     <DocsPage
-      toc={toc}
+      toc={filteredToc}
       full={page.data.full}
       breadcrumb={{ enabled: false }}
       tableOfContent={{
@@ -93,7 +95,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
               you can always disagree with me!
             </p>
           )}
-          <InlineTOC items={toc} className="mt-2 mb-4" />
+          <InlineTOC items={filteredToc} className="mt-2 mb-4" />
           <Mdx components={getMDXComponents()} />
         </div>
       </article>

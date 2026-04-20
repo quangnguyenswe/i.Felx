@@ -13,20 +13,20 @@ export const contacts: (InfoCard & {
 })[] = [
   {
     name: "linkedIn",
-    contact: "quangnguyen",
+    contact: "Felix Nguyen",
     icon: LinkedInIcon,
     link: "https://www.linkedin.com/in/quangnguyenduy03/",
   },
   {
     name: "email",
-    contact: "quangnguyen7403@gmail.com",
+    contact: "felxnguyen03@proton.me",
     icon: Mail,
-    link: "mailto:quangnguyen7403@gmail.com",
+    link: "mailto:felxnguyen03@proton.me",
   },
   {
     name: "reddit",
-    contact: "@V1gilante",
+    contact: "u/Far-Motor908",
     icon: SiReddit,
-    link: "https://www.reddit.comu/Far-Motor908",
+    link: "https://www.reddit.com/u/Far-Motor908",
   },
 ];

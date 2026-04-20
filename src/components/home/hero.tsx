@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { PlusSeparator } from "../ui/plus-separator";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import dayjs from "dayjs";
+import dayjs, { Dayjs } from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import Link from "next/link";
+import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -26,7 +27,8 @@ export default function HeroSection() {
             Hows it goin', I'm Felix 👋
           </h1>
           <p className="max-w-112.5 text-xs leading-4 sm:text-sm lg:text-base lg:leading-5">
-            a software developer with a passion for building and exploring new things (not just in code).
+            a software developer with a passion for building and exploring new
+            things (not just in code).
           </p>
         </span>
         <span className="flex w-full justify-center md:w-auto md:justify-end">
@@ -39,9 +41,24 @@ export default function HeroSection() {
       <div className="border-separator/10 border-t">
         <div className="inner relative m-auto border-separator/10 border-x p-4">
           <span className="relative flex items-center justify-between font-montreal-mono text-xs opacity-90 transition-opacity duration-300 dark:opacity-75">
-            <Link href="https://time.is/Hanoi" target="_blank">
-              [<LocalTime />]
-            </Link>
+            <Tooltip>
+              <TooltipTrigger
+                render={
+                  <Link href="https://time.is/Hanoi" target="_blank">
+                    [<LocalTime />]
+                  </Link>
+                }
+              />
+              <TooltipContent >
+                <p>
+                  I'm probably{" "}
+                  {dayjs().hour() > 1 && dayjs().hour() < 10
+                    ? "sleeping"
+                    : "awake"}{" "}
+                  right now.
+                </p>
+              </TooltipContent>
+            </Tooltip>
           </span>
           <PlusSeparator position={["top-left", "top-right"]} />
         </div>
