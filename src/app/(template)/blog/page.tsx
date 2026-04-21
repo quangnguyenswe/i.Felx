@@ -9,11 +9,13 @@ import { PathUtils } from "fumadocs-core/source";
 import Link from "next/link";
 
 export default function BlogPage() {
-  const posts = [...blog.getPages()].sort(
-    (a, b) =>
-      new Date(b.data.createdAt ?? getName(b.path)).getTime() -
-      new Date(a.data.createdAt ?? getName(a.path)).getTime(),
-  );
+  const posts = [...blog.getPages()]
+    .filter((post) => !post.data.hidden)
+    .sort(
+      (a, b) =>
+        new Date(b.data.createdAt ?? getName(b.path)).getTime() -
+        new Date(a.data.createdAt ?? getName(a.path)).getTime(),
+    );
   return (
     <main>
       <section className="w-full border-separator/10 border-b">
@@ -32,9 +34,7 @@ export default function BlogPage() {
                 <Image
                   src={post.data.image?.url ?? "/static/images/portfolio.png"}
                   alt={post.data.title}
-                  className={cn(
-                    "rounded-xs object-cover h-64",
-                  )}
+                  className={cn("rounded-xs object-cover h-64")}
                   fill
                   unoptimized
                 />
