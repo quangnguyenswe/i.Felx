@@ -29,7 +29,6 @@ export function ShareButton(props: ShareButtonProps) {
 
   const { isCopied, copyText } = useCopyText();
 
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   //TODO: fix the url encoding for description and url
   const twitterUrl = `https://twitter.com/intent/tweet?text=${description}&url=${url}`;
   const fbUrl = `https://www.facebook.com/sharer/sharer.php?quote=${description}&u=${url}`;
@@ -47,11 +46,7 @@ export function ShareButton(props: ShareButtonProps) {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button
-            type="button"
-            className={"cursor-pointer"}
-            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          >
+          <Button type="button" className={"cursor-pointer"}>
             {!isCopied && (
               <>
                 <Share2 size="15px" />
@@ -75,7 +70,6 @@ export function ShareButton(props: ShareButtonProps) {
             className={"cursor-pointer"}
             onClick={() => {
               copyText(url);
-              setIsDropdownOpen(false);
             }}
           >
             <Copy />
