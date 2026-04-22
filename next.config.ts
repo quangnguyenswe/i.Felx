@@ -6,7 +6,14 @@ const config: NextConfig = {
   serverExternalPackages: ["typescript", "shiki"],
   reactStrictMode: true,
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "api.microlink.io",
+        port: "",
+        pathname: "/**",
+      }
+    ],
   },
 };
 

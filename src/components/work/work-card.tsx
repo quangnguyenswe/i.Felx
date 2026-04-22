@@ -23,7 +23,7 @@ export default function WorkCard(props: WorkCardProps) {
       location={work.location}
     >
       <WorkHistoryTitle>
-        {work.role} <span className="text-muted-foreground">at</span>{" "}
+        {work.role} <span className="text-muted-foreground underline">at</span>{" "}
         {work.company}
       </WorkHistoryTitle>
       {/* prettier-ignore */}
