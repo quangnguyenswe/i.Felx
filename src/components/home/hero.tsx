@@ -49,10 +49,10 @@ export default function HeroSection() {
                   </Link>
                 }
               />
-              <TooltipContent >
+              <TooltipContent>
                 <p>
                   I'm probably{" "}
-                  {dayjs().hour() > 1 && dayjs().hour() < 10
+                  {dayjs().hour() > 1 && dayjs().hour() < 8
                     ? "sleeping"
                     : "awake"}{" "}
                   right now.
