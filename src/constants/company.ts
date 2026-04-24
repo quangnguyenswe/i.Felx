@@ -26,7 +26,7 @@ export const companies: Array<Company> = [
     description:
       "VTI is a trusted global technology company, turning innovation into lasting value by harnessing AI and advanced technologies. As a dedicated partner in clients’ DX journeys, with a strong Asian presence and over 1,800 skilled personnel, we enable enterprises to navigate the digital era with confidence.",
     flags: ["first-job"],
-    image: "static/images/vtijsc_logo.jpeg",
+    image: "images/vtijsc_logo.jpeg",
     links: [
       {
         title: "Landing Page",

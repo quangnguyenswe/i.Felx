@@ -1,7 +1,7 @@
 <table width="100%">
   <tr>
     <td align="left" width="120">
-      <img src="public/static/icons/felix.png" alt="My signature avatar " width="100" />
+      <img src="public/icons/felix.png" alt="My signature avatar " width="100" />
     </td>
     <td align="right">
       <h1>Personal Website</h1>
