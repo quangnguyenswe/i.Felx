@@ -5,6 +5,7 @@ import { Accordion, Accordions } from "@/components/ui/accordion";
 import { createGenerator } from "fumadocs-typescript";
 import { AutoTypeTable } from "fumadocs-typescript/ui";
 import { CodeBlock, Pre } from "fumadocs-ui/components/codeblock";
+import * as TabsComponents from 'fumadocs-ui/components/tabs';
 
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 const generator = createGenerator();
@@ -15,6 +16,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     AutoTypeTable: (props) => (
       <AutoTypeTable {...props} generator={generator} />
     ),
+    ...TabsComponents,
     Accordion,
     Accordions,
     img: (props) => <ImageZoom {...(props as any)} loading="lazy" />,

@@ -9,6 +9,7 @@ import { getMDXComponents } from "@/components/markdown/mdx-components";
 import { blog } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { ShareButton } from "@/components/share-button";
+import { getName } from "../../page";
 
 export default async function Page(props: PageProps<"/blog/[slug]">) {
   const params = await props.params;
@@ -69,7 +70,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
         </section>
         {image.data?.url && (
           <Image
-            src={image.data?.url ?? "/assets/blog/default.png"}
+            src={image.data?.url ?? `/og/blogs/${getName(page.path)}.png`}
             alt="Blog Post Image"
             width={image.width}
             height={image.height}

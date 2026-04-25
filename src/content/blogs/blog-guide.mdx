@@ -1,6 +1,6 @@
 ---
-title: "Adding new posts to This Blog"
-description: "Just some quick rules and guidelines for me to follow when creating new blog for this site"
+title: "Adding New Blog Posts: A Comprehensive Guide"
+description: "Just some quick rules and guidelines for me to follow when creating new blog in this site"
 author: "Felix Ng"
 createdAt: 2026-04-16
 tags: ["personal", "guide"]
@@ -17,8 +17,8 @@ Learn how to create compelling blog posts using the Astro Boilerplate theme with
 
 Before you begin writing, ensure you have:
 
-- [ ] Created a new `.md` file in `src/data/blogs/`
-- [ ] Added required frontmatter fields (`title`, `description`, `date`)
+- [ ] Created a new `.md` or `.mdx` file in `src/content/blogs/`
+- [ ] Added required frontmatter fields (`title`, `description`, `createdAt`)
 - [ ] Chosen appropriate tags for your content
 - [ ] Prepared any images you'll use
 
@@ -28,7 +28,7 @@ Before you begin writing, ensure you have:
 
 Create your markdown file in the `src/content/blogs/` directory. Use descriptive filenames with hyphens for separation:
 
-```bash title="File Naming Examples"
+```bash
 # Good examples
 src/content/blogs/getting-started-with-astro.md
 src/content/blogs/advanced-seo-techniques.md
@@ -50,7 +50,7 @@ description: "A compelling description that summarizes your post content"
 author: "Your Name"
 createdAt: 2025-09-27
 image:
-  url: "https://example.com/path-to-your-image.jpg"
+  url: "https://example.com/path-to-your-image.jpg" // Recommend using og image for better SEO
   description: "A descriptive caption for the image"
 tags: ["tag1", "tag2", "tag3"]
 ---
@@ -93,20 +93,12 @@ Are you struggling with slow page loads? In this guide, you'll discover
 
 ## Working with Images
 
-### Method 1: Optimized Images (Recommended)
+### Static Images
 
-Store images in `src/assets/` for automatic optimization:
-
-```markdown title="Optimized Image"
-![Descriptive alt text](@/assets/images/example.jpg)
-```
-
-### Method 2: Static Images
-
-For unoptimized images, use the `public/` directory:
+For images, use the `public/` directory:
 
 ```markdown title="Static Image"
-![Alt text](/assets/images/example.jpg)
+![Alt text](/public/images/blogs/example.jpg)
 ```
 
 ### Image Best Practices
@@ -115,6 +107,16 @@ For unoptimized images, use the `public/` directory:
 - **File size**: Compress images using [TinyPNG](https://tinypng.com/) or similar tools
 - **Dimensions**: Use consistent aspect ratios for visual harmony
 - **Format**: Use WebP or modern formats when possible
+
+<Callout title="Tip For Open Graph Images (OG Images)">
+  Run the `generate-og-images` script to automatically create OG images for your
+  blog posts based on the post title and a default template.
+  <Tabs items={['npm', 'pnpm']} defaultIndex={1}>
+  <Tab value="npm">npm run generate:og</Tab>
+  <Tab value="pnpm">pnpm generate:og</Tab>
+</Tabs>
+
+</Callout>
 
 ## Advanced Formatting
 

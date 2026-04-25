@@ -103,6 +103,6 @@ export default function BlogPage() {
   );
 }
 
-function getName(path: string) {
+export function getName(path: string) {
   return PathUtils.basename(path, PathUtils.extname(path));
 }

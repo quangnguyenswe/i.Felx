@@ -12,7 +12,7 @@ export default function Footer() {
               href="/"
               className="w-max bg-foreground pr-2 pl-1 font-semibold text-2xl text-background tracking-[-0.09em]"
             >
-              iFelx
+              i.Felx
             </Link>
             <p className="text-muted-foreground text-sm">
               yet another personal site

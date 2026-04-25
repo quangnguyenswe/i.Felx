@@ -124,7 +124,7 @@ export default function Navigation() {
               href="/"
               className="font-medium font-mono text-xs sm:text-base"
             >
-              iFelx
+              i.Felx
             </Link>
             {matchPath(pathname, backItems) && (
               <Link href="/blog" className="flex h-4 items-center">
