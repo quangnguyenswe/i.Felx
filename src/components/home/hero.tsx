@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { PlusSeparator } from "../ui/plus-separator";
 import { cn } from "@/lib/utils";
 import dynamic from "next/dynamic";
-import dayjs, { Dayjs } from "dayjs";
+import dayjs from "dayjs";
 import timezone from "dayjs/plugin/timezone";
 import utc from "dayjs/plugin/utc";
 import Link from "next/link";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
+import { Meteors } from "../ui/meteors";
 
 dayjs.extend(utc);
 dayjs.extend(timezone);
@@ -19,9 +20,11 @@ export default function HeroSection() {
       <div
         className={cn(
           "inner relative flex h-[70vh] flex-col justify-around border-separator/10 border-x px-4 transition-all *:transition-all sm:px-6 lg:flex-row lg:items-center lg:justify-between lg:gap-0 lg:px-16",
-          // backgroundImageVariants({ variant: currentTheme }),
         )}
       >
+        <div className="absolute inset-0 -z-10 overflow-hidden">
+          <Meteors number={30} />
+        </div>
         <span className="flex flex-col *:transition-all lg:pb-64">
           <h1 className="font-medium font-montreal text-3xl sm:text-4xl lg:text-[2.5rem] lg:leading-14">
             Hows it goin', I'm Felix 👋
@@ -52,7 +55,8 @@ export default function HeroSection() {
               <TooltipContent>
                 <p>
                   I'm probably{" "}
-                  {dayjs().hour() > 1 && dayjs().hour() < 8
+                  {dayjs().tz("Asia/Ho_Chi_Minh").hour() > 1 &&
+                  dayjs().tz("Asia/Ho_Chi_Minh").hour() < 8
                     ? "sleeping"
                     : "awake"}{" "}
                   right now.
