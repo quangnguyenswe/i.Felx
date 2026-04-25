@@ -22,8 +22,7 @@ export const workHistory: Array<WorkHistoryType> = [
     contributions: [
       "Developed and maintained a internal social media, which is used by over <b>1800 employees</b> across the company. This platform saved the company around <b>$10,000</b> per month on third-party communication tools and improved employee engagement and collaboration.",
       "Worked on internal <b>copilot</b> tools that leverage AI to assist employees in various development phases, from planning, coding, testing and deployment. These tools have significantly improved developer productivity and code quality across the organization.",
-      "Created a CLI for AI coding assistance, which has been adopted by over 200 developers in the company, resulting in approximately 30% reduction in time spent on coding tasks and a noticeable improvement in code quality.",
-      "Implemented a dashboard for monitoring and analyzing the performance of AI models used in our products, which managed over <b>30 teams</b> with over <b>100M+ monthly tokens</b> for both local and commercial llm models",
+      "Implemented a dashboard for monitoring and analyzing the performance of AI models used in our products, which managed over <b>30 teams</b> with over <b>300M+ monthly tokens</b> for both local and commercial llm models",
       "Participated in code reviews and provided mentorship to other developers, fostering a culture of continuous learning and improvement.",
     ],
     tags: [
