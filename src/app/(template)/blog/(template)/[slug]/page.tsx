@@ -10,6 +10,7 @@ import { blog } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { ShareButton } from "@/components/share-button";
 import { getName } from "../../page";
+import { createMetadataBlog } from "@/lib/metadata";
 
 export default async function Page(props: PageProps<"/blog/[slug]">) {
   const params = await props.params;
@@ -102,6 +103,30 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
       </article>
     </DocsPage>
   );
+}
+
+export async function generateMetadata(
+  props: PageProps<"/blog/[slug]">,
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const page = blog.getPage([params.slug]);
+
+  if (!page) notFound();
+
+  const image = {
+    url: `/og/blogs/${getName(page.path)}.png`,
+    width: 1200,
+    height: 630,
+  };
+  return createMetadataBlog({
+    title: page.data.title,
+    description: page.data.description ?? "Yet another blog post.",
+    openGraph: {
+      url: `/blog/${page.slugs.join("/")}`,
+      images: [image],
+    },
+  });
 }
 
 export function generateStaticParams(): { slug: string }[] {
