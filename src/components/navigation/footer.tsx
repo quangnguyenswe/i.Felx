@@ -77,7 +77,7 @@ export default function Footer() {
           <p className="max-w-[60%] text-2xs text-muted-foreground leading-3">
             This website is available on{" "}
             <Link
-              href="https://github.com/quangnguyenswe"
+              href="https://github.com/quangnguyenswe/i.Felx"
               className="underline transition-colors hover:text-primary"
             >
               GitHub

@@ -5,12 +5,12 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { InlineTOC } from "@/components/markdown/inline-toc";
 import { getMDXComponents } from "@/components/markdown/mdx-components";
-// import { createMetadataBlog, getBlogPageImage } from "@/lib/metadata";
 import { blog } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { ShareButton } from "@/components/share-button";
 import { getName } from "../../page";
 import { createMetadataBlog } from "@/lib/metadata";
+import { baseUrl } from "@/app/sitemap";
 
 export default async function Page(props: PageProps<"/blog/[slug]">) {
   const params = await props.params;
@@ -115,7 +115,7 @@ export async function generateMetadata(
   if (!page) notFound();
 
   const image = {
-    url: `/og/blogs/${getName(page.path)}.png`,
+    url: baseUrl(`/og/blogs/${getName(page.path)}.png`),
     width: 1200,
     height: 630,
   };

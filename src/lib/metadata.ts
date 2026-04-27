@@ -1,5 +1,4 @@
 import type { Metadata } from "next/types";
-import { BlogPage } from "./source";
 
 export function createMetadataBlog(override: Metadata): Metadata {
   return {
