@@ -43,13 +43,13 @@ export default function BlogPage() {
               <p className="mt-5 font-medium text-lg leading-5">
                 {post.data.title}
               </p>
-              <p className="mt-px text-fd-muted-foreground text-sm leading-4.5">
+              <p className="mt-3 text-fd-muted-foreground text-sm leading-4.5">
                 {post.data.description}
               </p>
 
               <span className="mt-4 flex items-center justify-between">
                 <span className="inline-flex text-brand text-xs">
-                  {(post.data.tags ?? []).map((tag, idx) => (
+                  {(post.data.tags?.slice(0, 2) ?? []).map((tag, idx) => (
                     <span key={tag} className="inline-flex h-4 items-center">
                       <Badge>{tag}</Badge>
                       {idx !== (post.data.tags?.length ?? 0) - 1 && (
@@ -57,6 +57,9 @@ export default function BlogPage() {
                       )}
                     </span>
                   ))}
+                  {post.data.tags && post.data.tags.length > 2 && (
+                    <Badge>+ {post.data.tags.length - 2} tags</Badge>
+                  )}
                 </span>
                 <p className="mt-auto text-brand text-xs">
                   {new Date(
