@@ -32,6 +32,7 @@ export default function BlogPage() {
             >
               <span className="relative h-64 w-full p-0!">
                 <Image
+                  loading="eager"
                   src={post.data.image?.url ?? "/images/portfolio.png"}
                   alt={post.data.title}
                   className={cn("rounded-xs object-cover h-64")}

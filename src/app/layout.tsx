@@ -16,6 +16,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "i.Felx",
   description: "Yet another personal site",
+  openGraph: {
+    title: "i.Felx",
+    description: "Yet another personal site",
+    url: "https://ifelx.pages.dev",
+    siteName: "i.Felx",
+    images: [
+      {
+        url: "https://ifelx.pages.dev/images/banner.png",
+        width: 1200,
+        height: 630,
+        alt: "i.Felx's Portfolio",
+      },
+    ],
+    locale: "en-US",
+    type: "website",
+  }
 };
 
 export default function RootLayout({

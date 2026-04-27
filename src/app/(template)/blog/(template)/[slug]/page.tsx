@@ -71,6 +71,7 @@ export default async function Page(props: PageProps<"/blog/[slug]">) {
         </section>
         {image.data?.url && (
           <Image
+            loading="eager"
             src={image.data?.url ?? `/og/blogs/${getName(page.path)}.png`}
             alt="Blog Post Image"
             width={image.width}
