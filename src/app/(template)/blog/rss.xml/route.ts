@@ -13,8 +13,8 @@ export function GET() {
     link: `${baseUrl}/blog`,
     language: "en",
 
-    image: `${baseUrl}/banner.png`,
-    favicon: `${baseUrl}/icon.png`,
+    image: `${baseUrl}/images/banner.png`,
+    favicon: `${baseUrl}/icons/icon.png`,
     copyright: `Copyright © ${new Date().getFullYear()} I.Felx. All rights reserved.`,
   });
 
