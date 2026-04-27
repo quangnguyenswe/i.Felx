@@ -1,0 +1,112 @@
+---
+title: Building and Deploying a Next.js Portfolio on Cloudflare Pages
+description: How I built my portfolio with Next.js and deployed it on Cloudflare Pages, and why you should consider doing the same for your projects.
+createdAt: 2026-04-27
+author: Felix Ng
+tags: [guides, nextjs, cloudflare, deployment]
+---
+
+One of a cool things about being a developer is that you responsible for platform and infrastructure of many projects, products that used by thousands to millions of users.
+
+I'm no exception to this, yet when you participate in these projects you tend to be neglect about your side-projects, but I never own a proper one until recently, I thought to myself, why not build one to showcase my work and share my thoughts?
+
+# Why Next.js and Cloudflare Pages?
+
+Simply cause it's free. (Yeah I'm cheap 😅). One very important thing when using this combination, you can only serve static pages. That's mean there are some unsupported features that require a Node.js server, or dynamic logic. For more details about the static export limitations, I highly recommend you to check out the official Next.js documentation on [Static HTML Export](https://nextjs.org/docs/pages/guides/static-exports).
+
+But if you only need to serve static pages, which is the case for my portfolio, I don't need any of these features, and I can easily work around them by fetching data from external APIs or using client-side rendering. So it's a perfect fit for my portfolio.
+
+## Next.js?
+
+At first, I choose Astro since I already have experience with it, but I want to try out something that I always hate on, which is Next.js and just because Fumadocs UI looks so good.
+
+## Cloudflare Pages?
+
+Github Pages is a great option for hosting static sites, but they have some limitations that I find kind of frustrating and limiting. Maybe I do the comparation in the future, but for now, I just want to say that it doesn't fit me very well, especially when it comes to performance and reliability that Cloudflare offers.
+
+Cloudflare Pages offer a very generous free tier, and it's super easy to set up with GitHub. Plus, Cloudflare's global CDN ensures that my portfolio loads quickly for visitors around the world. After some consideration, I decided to go with Cloudflare Pages over Github Pages for better performance and reliability.
+
+# Getting Started
+
+To get started, You need to build out your own portfolio, you can follow the official Next.js documentation to create a new Next.js app, or you can use a starter template like Fumadocs UI to speed up the development process.
+
+For me, I found a very good template to started as the foundation of my portfolio. Thank you [hexxa](https://github.com/hexaaagon) for open-sourcing his personal website. I copy most of the layout and styles from his project, and then build and customize to fit my personal vibe and style. I also add some features that I think are useful, such as a blog section to share my thoughts and experiences, and a projects section to showcase my work.
+
+Once you have your portfolio ready, you can move on to the next step, which is configuring it for deployment on Cloudflare Pages.
+
+# Configuration before Deployment
+
+With the normal next.js setup, you need some configuration with your `next.config.js` to make sure it works properly with Cloudflare Pages. Here are some of the things needed to be configured:
+
+- Set the `output` to `export` to enable static export mode.
+
+```ts title="next.config.ts"
+/**
+ * @type {import('next').NextConfig}
+ */
+const config: NextConfig = {
+  output: "export", // Add this line
+  // Other configurations...
+
+  // Optional: Change the output directory `out` -> `dist`. I keep it as default.
+  // distDir: 'dist',
+};
+```
+
+- Image Optimization: You need to configure the `images`, since the default Next.js image optimization is not supported in static export mode. I decided to disable image optimization for simplicity. [Check this out](https://nextjs.org/docs/pages/guides/static-exports#image-optimization) for custom image optimization options.
+
+```ts title="next.config.ts"
+/**
+ * @type {import('next').NextConfig}
+ */
+const config: NextConfig = {
+  output: "export",
+  images: {
+    unoptimized: true,
+  },
+};
+```
+
+Alright, I think we all good now, you can push your code to GitHub and move on to the next step now.
+
+# Deploying to Cloudflare Pages
+
+First, you need a cloudflare account, if you don't have one, head to [Cloudflare Pages](https://pages.cloudflare.com/sign-up) and sign up.
+
+Once you have an account, you can create a new project. On the dashboard sidebar, follow:
+
+`Compute` > `Workers & Pages` > Click on `Create application` > Then, you can connect your Github (if you haven't connected yet)
+
+![Create Cloudflare Pages Project](/images/blogs/nextjs-cloudflare-pages-guide/new-application.png)
+
+Since we only want to deploy a static site, we can click on `Get Started` under the options card. Or simply go to `https://dash.cloudflare.com/[your-account-id]/workers-and-pages/create/pages` to create a new Pages project.
+
+![Create Cloudflare Pages Project](/images/blogs/nextjs-cloudflare-pages-guide/new-cloudflare-pages.png)
+
+We gonna choose the `Import an existing Git repository` option, and then select the repository that contains your Next.js portfolio code.
+
+In `Set up builds and deployments` step, cloudflare will automatically detect that it's a Next.js project and pre-fill the build settings for you. You just need to make sure the settings are correct:
+
+- Framework preset: `Next.js (Static HTML Export)` Once selected, the rest of the settings will be auto-filled for you.
+- Build command: `npx next build`
+- Build output directory: `out` (or `dist` if you changed the `distDir` in your `next.config.js`)
+
+Now you can click on `Save and Deploy` to start the deployment process. Cloudflare will clone your repository, install dependencies, build your Next.js app, and deploy it to their global CDN. The whole process usually takes a few minutes.
+
+![Build Settings](/images/blogs/nextjs-cloudflare-pages-guide/build-setup.png)
+
+<Callout title="Important Note">
+  Project name going to be part of your website URL, so choose it wisely. For
+  example, if you name your project `my-portfolio`, your website will be
+  deployed to `https://my-portfolio.pages.dev`. You can change the project name
+  later or add your custom domain, but it's better to choose a good name from
+  the start.
+</Callout>
+
+Once the deployment is complete, you can visit your new portfolio website at the provided URL. You can also manage your deployments, view logs, and configure settings from the Cloudflare Pages dashboard.
+
+# Takeaways and Final Thoughts
+
+If you're just a beginner or even an experienced developer, I always encourage you to build you own portfolio and deploy it to the web. It's a great way to showcase your work, share your thoughts, and learn new technologies in the process. Plus, it's a fun project that you can customize and make it as your own space on the internet.
+
+The source code of my portfolio is open-sourced and available on [GitHub](https://github.com/quangnguyenswe/i.Felx), feel free to check it out and use it as a reference for your own portfolio. If you have any questions or suggestions, don't hesitate to reach out to me. I'm always happy to help and share my knowledge with the community.
