@@ -5,7 +5,7 @@ import { AtSign } from "lucide-react";
 export const socials = [
   {
     name: "Email",
-    href: "mailto:quangnguyen7403@gmail.com",
+    href: "mailto:felxnguyen03@proton.me",
     icon: AtSign,
   },
   {
