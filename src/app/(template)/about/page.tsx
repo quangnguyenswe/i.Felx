@@ -100,6 +100,15 @@ export default function AboutPage() {
                 />
               ))}
             </ul>
+            <section className="flex flex-col items-center justify-center pt-6">
+              <p>check out what I've been done there</p>
+              <Link
+                href="/work"
+                className="font-mono text-blue-600 hover:underline dark:text-blue-400"
+              >
+                [/work]
+              </Link>
+            </section>
           </div>
           <div className="relative hidden min-h-full w-[10%] border-separator/10 border-l md:block">
             <PlusSeparator position={["top-left", "bottom-left"]} />
