@@ -36,8 +36,8 @@ export default function HeroSection() {
         </span>
         <span className="flex w-full justify-center md:w-auto md:justify-end">
           <p className="w-full max-w-87.5 text-center font-montreal-mono text-muted-foreground text-xs sm:text-sm md:text-base lg:w-auto lg:pt-52 lg:text-end">
-            &quot;Don’t do what you’ll regret. If you’ve already done it, don’t
-            waste time regretting it.&quot;
+            &quot;Don’t do what you’ll regret. If you already have, don’t waste
+            time regretting it.&quot;
           </p>
         </span>
       </div>
