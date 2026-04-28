@@ -54,11 +54,10 @@ export default function AboutPage() {
               <div className="absolute bottom-0 h-4 w-full bg-linear-to-b from-transparent to-background/60"></div>
             </span>
             <div className="text-sm leading-relaxed md:text-base">
-              I am currently a software engineer at a tech company, and I am
-              passionate about building things that can make people's lives
-              easier and more enjoyable. I am always looking for new challenges
-              and opportunities to learn and grow as a developer, and I am
-              excited to see what the future holds for me in this field.
+              I am currently a software engineer, focused on building solutions
+              that genuinely improve people's lives. I'm always looking for new
+              challenges and opportunities to learn and grow as a developer, and
+              I am excited to see how the future holds for me in this field.
             </div>
           </div>
           <div className="w-full">
