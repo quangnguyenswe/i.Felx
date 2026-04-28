@@ -6,13 +6,25 @@ author: Felix Ng
 tags: [guides, nextjs, cloudflare, deployment]
 ---
 
-One of a cool things about being a developer is that you responsible for platform and infrastructure of many projects, products that used by thousands to millions of users.
+One cool thing about being a developer is that you are responsible for the platform and infrastructure of many projects and products used by thousands to millions of users. Yet when you participate in these projects, you tend to neglect your side projects.
 
-I'm no exception to this, yet when you participate in these projects you tend to be neglect about your side-projects, but I never own a proper one until recently, I thought to myself, why not build one to showcase my work and share my thoughts?
+I'm no exception to this. But I never had a proper one until recently. I thought to myself: why not build one to showcase my work and share my thoughts?
+
+## TL;DR
+
+This post explains how I built my portfolio with Next.js and Cloudflare Pages.
+
+- I started with the goal of building a portfolio that could showcase my work and give me a place to share my thoughts.
+- I chose Next.js because I wanted to try it for a personal project and pair it with a design I liked.
+- I chose Cloudflare Pages because it offers a generous free tier, simple GitHub integration, and strong global performance.
+- The setup works best when the site only needs static pages, since Cloudflare Pages does not support Node.js server features in this deployment model.
+- To make Next.js compatible, I set `output: "export"` and disabled built-in image optimization with `images.unoptimized = true`.
+- After configuring the build settings, I connected the Git repository, selected the static export preset, and deployed the site to Cloudflare’s CDN.
+- The main takeaway is that building and shipping your own portfolio is a practical way to showcase your work, learn, and create a home for your writing and projects.
 
 # Why Next.js and Cloudflare Pages?
 
-Simply cause it's free. (Yeah I'm cheap 😅). One very important thing when using this combination, you can only serve static pages. That's mean there are some unsupported features that require a Node.js server, or dynamic logic. For more details about the static export limitations, I highly recommend you to check out the official Next.js documentation on [Static HTML Export](https://nextjs.org/docs/pages/guides/static-exports).
+Simply because it's free. (Yeah, I'm cheap 😅.) One very important thing about this combination is that you can only serve static pages. That means there are some unsupported features that require a Node.js server or dynamic logic. For more details about the static export limitations, I highly recommend checking out the official Next.js documentation on [Static HTML Export](https://nextjs.org/docs/pages/guides/static-exports).
 
 But if you only need to serve static pages, which is the case for my portfolio, I don't need any of these features, and I can easily work around them by fetching data from external APIs or using client-side rendering. So it's a perfect fit for my portfolio.
 
@@ -22,21 +34,19 @@ At first, I choose Astro since I already have experience with it, but I want to 
 
 ## Cloudflare Pages?
 
-Github Pages is a great option for hosting static sites, but they have some limitations that I find kind of frustrating and limiting. Maybe I do the comparation in the future, but for now, I just want to say that it doesn't fit me very well, especially when it comes to performance and reliability that Cloudflare offers.
+GitHub Pages is a great option for hosting static sites, but it has some limitations that I find frustrating and restrictive. Maybe I'll do the comparison in the future, but for now, I just want to say that it doesn't fit me very well, especially when it comes to the performance and reliability Cloudflare offers.
 
-Cloudflare Pages offer a very generous free tier, and it's super easy to set up with GitHub. Plus, Cloudflare's global CDN ensures that my portfolio loads quickly for visitors around the world. After some consideration, I decided to go with Cloudflare Pages over Github Pages for better performance and reliability.
+Cloudflare Pages offers a very generous free tier, and it's super easy to set up with GitHub. Plus, Cloudflare's global CDN ensures that my portfolio loads quickly for visitors around the world. After some consideration, I decided to go with Cloudflare Pages over GitHub Pages for better performance and reliability.
 
 # Getting Started
 
-To get started, You need to build out your own portfolio, you can follow the official Next.js documentation to create a new Next.js app, or you can use a starter template like Fumadocs UI to speed up the development process.
+To get started, you need to build your own portfolio. You can follow the official Next.js documentation to create a new Next.js app, or you can use a starter template like Fumadocs UI to speed up the development process.
 
-For me, I found a very good template to started as the foundation of my portfolio. Thank you [hexxa](https://github.com/hexaaagon) for open-sourcing his personal website. I copy most of the layout and styles from his project, and then build and customize to fit my personal vibe and style. I also add some features that I think are useful, such as a blog section to share my thoughts and experiences, and a projects section to showcase my work.
-
-Once you have your portfolio ready, you can move on to the next step, which is configuring it for deployment on Cloudflare Pages.
+For me, I found a very good template to start with as the foundation of my portfolio. Thank you [hexxa](https://github.com/hexaaagon) for open-sourcing his personal website. I copied most of the layout and styles from his project, then built and customized it to fit my personal vibe and style.
 
 # Configuration before Deployment
 
-With the normal next.js setup, you need some configuration with your `next.config.js` to make sure it works properly with Cloudflare Pages. Here are some of the things needed to be configured:
+With a normal Next.js setup, you need some configuration in your `next.config.js` to make sure it works properly with Cloudflare Pages. Here are some of the things that need to be configured:
 
 - Set the `output` to `export` to enable static export mode.
 
@@ -53,7 +63,7 @@ const config: NextConfig = {
 };
 ```
 
-- Image Optimization: You need to configure the `images`, since the default Next.js image optimization is not supported in static export mode. I decided to disable image optimization for simplicity. [Check this out](https://nextjs.org/docs/pages/guides/static-exports#image-optimization) for custom image optimization options.
+- Image optimization: You need to configure `images`, since the default Next.js image optimization is not supported in static export mode. I decided to disable image optimization for simplicity. [Check this out](https://nextjs.org/docs/pages/guides/static-exports#image-optimization) for custom image optimization options.
 
 ```ts title="next.config.ts"
 /**
@@ -104,6 +114,13 @@ Now you can click on `Save and Deploy` to start the deployment process. Cloudfla
 </Callout>
 
 Once the deployment is complete, you can visit your new portfolio website at the provided URL. You can also manage your deployments, view logs, and configure settings from the Cloudflare Pages dashboard.
+
+# What I gained from this experience
+
+**Full Control** - All the source code is fully controlled by me, and I can customize it to fit my needs and preferences. If I want all the features that Nextjs offers, I can try out Cloudflare Workers that run on the edge(but that's a story for another day).
+**Cost-Effective** - Monthly cost is *$0/month*. Domain registration is the only cost if I decide to use one.
+**Performance** - Cloudflare's global CDN ensures that my portfolio loads quickly for visitors around the world, providing a great user experience.
+**Learning Experience** - This is the first time I use this combination of technologies, and the first time I deploy a website using cloud provider. So yeah, I learned a lot.
 
 # Takeaways and Final Thoughts
 

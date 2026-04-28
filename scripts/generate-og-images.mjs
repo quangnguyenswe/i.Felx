@@ -145,7 +145,7 @@ function getBlogTemplate({ title, description }) {
   // Description sizing
   const descLength = descText.length;
   let descSize = "28px";
-  if (descLength > 120) descSize = "18px";
+  if (descLength > 140) descSize = "18px";
   else if (descLength > 80) descSize = "22px";
 
   // Truncate text if too long (approximate 2 lines)
