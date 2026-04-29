@@ -2,6 +2,7 @@ import { HeaderBanner, SideNoise } from "@/components/about/banner";
 import ComingSoonSection from "@/components/about/coming-soon";
 import { CompanyCard } from "@/components/about/company-card";
 import { AnimatedBackground } from "@/components/animated-background";
+import SnakeScreen from "@/components/snake/SnakeScreen";
 import { PlusSeparator } from "@/components/ui/plus-separator";
 import { companies } from "@/constants/company";
 import { contacts } from "@/constants/contact";
@@ -24,7 +25,7 @@ export default function AboutPage() {
             main={{ className: "z-20" }}
           />
           <div className="w-full">
-            <ComingSoonSection />
+            <SnakeScreen />
           </div>
           <div className="md:mr-8 xl:max-w-3/5">
             <span className="relative">

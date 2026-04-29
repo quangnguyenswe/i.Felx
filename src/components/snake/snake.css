@@ -1,0 +1,227 @@
+/* Load font FirstTimeWriting */
+
+@font-face {
+  font-family: FirstTimeWriting;
+  src: url("/fonts/FirstTimeWriting.ttf") format("truetype");
+}
+
+.board {
+  position: absolute;
+  top: 20px;
+  width: 315px;
+  height: 180px;
+  left: 50%;
+  right: auto;
+  margin-right: 0;
+  z-index: 1;
+  --board-shift: 0px;
+  transform: translateX(calc(-50% + var(--board-shift)));
+  transition: transform 0.3s;
+}
+
+#right-image {
+  transition: margin-right 0.3s;
+}
+
+.safari-board {
+  --board-shift: 0px;
+}
+
+.board img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  object-fit: unset;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.board::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  right: 4px;
+  left: 4px;
+  display: block;
+  background: #f0f0f0;
+  z-index: 1;
+}
+
+.header-right .love {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 3px;
+  right: 65px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+#gameArea {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+  width: 304px;
+  height: 160px;
+  font-weight: bold;
+  text-shadow: 0 0 0.5px black;
+  display: inline-grid;
+  grid-template-columns: 0.5fr 1.5fr 2.5fr 1fr;
+  grid-auto-rows: 1fr;
+  border-radius: 0;
+  align-self: center;
+  z-index: 1;
+}
+
+.game-start-screen {
+  position: absolute;
+  z-index: 2;
+  top: 60px;
+  left: 6px;
+  bottom: 6px;
+  right: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-weight: 600;
+  font-family: FirstTimeWriting;
+  text-shadow:
+    0.2px 0 0 #000,
+    -0.2px 0 0 #000,
+    0 0.2px 0 #000,
+    0 -0.2px 0 #000;
+  color: #000;
+}
+
+.game-loading-screen {
+  position: absolute;
+  inset: 4px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(240, 240, 240, 0.92);
+  font-family: FirstTimeWriting;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-shadow:
+    0.2px 0 0 #000,
+    -0.2px 0 0 #000,
+    0 0.2px 0 #000,
+    0 -0.2px 0 #000;
+}
+
+.game-start-screen.hidden,
+.countdown.hidden,
+#score.hidden {
+  display: none !important;
+}
+
+.board-moved {
+  --board-shift: 0px;
+}
+
+.right-image-moved {
+  margin-right: -70px;
+}
+
+#score {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 700;
+  top: -29px;
+  font-family: FirstTimeWriting;
+  text-shadow:
+    0.4px 0 0 #222,
+    -0.4px 0 0 #222,
+    0 0.4px 0 #222,
+    0 -0.4px 0 #222;
+}
+
+html.dark #score {
+  text-shadow:
+    0.4px 0 0 #e2e8f0,
+    -0.4px 0 0 #e2e8f0,
+    0 0.4px 0 #e2e8f0,
+    0 -0.4px 0 #e2e8f0;
+}
+
+.custom-hidden {
+  opacity: 0 !important;
+  pointer-events: none;
+  cursor: default;
+}
+
+.countdown {
+  position: absolute;
+  top: -29px;
+  right: 0;
+  font-family: FirstTimeWriting;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  text-shadow:
+    0.4px 0 0 #222,
+    -0.4px 0 0 #222,
+    0 0.4px 0 #222,
+    0 -0.4px 0 #222;
+  gap: 4px;
+}
+
+html.dark .countdown {
+  text-shadow:
+    0.4px 0 0 #e2e8f0,
+    -0.4px 0 0 #e2e8f0,
+    0 0.4px 0 #e2e8f0,
+    0 -0.4px 0 #e2e8f0;
+}
+
+.countdown img {
+  width: 24px;
+  height: 24px;
+}
+
+.game-button {
+  border: 1px solid #000;
+  border-radius: 6px;
+  padding-bottom: 2px;
+  background: #c5c5c5;
+  font-size: 14px;
+  width: 90px;
+}
+
+.game-button:hover {
+  padding-bottom: 4px;
+}
+
+.game-button:hover span {
+  box-shadow: 0 4px 3px -4px black;
+}
+
+.game-button:active {
+  padding-bottom: 0px;
+}
+
+.game-button:active span {
+  box-shadow: inset 0 4px 3px -4px black;
+}
+
+.game-button span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  margin: -1px;
+  height: 27px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: white;
+  text-align: center;
+  user-select: none;
+}
