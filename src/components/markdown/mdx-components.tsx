@@ -19,6 +19,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...TabsComponents,
     Accordion,
     Accordions,
+    strong: (props) => <strong className="font-bold">{props.children}</strong>,
     a: (props) => {
       const href = props.href ?? "";
       const isExternal = href.startsWith("http") || href.startsWith("mailto:");
