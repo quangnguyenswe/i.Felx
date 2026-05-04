@@ -70,5 +70,20 @@ export const sideProjects: ProjectItem[] = [
       <Badge key="portfolio">Portfolio</Badge>,
       <Badge key="personal">Personal</Badge>,
     ],
+    repo: "https://github.com/quangnguyenswe/i.Felx",
+    link: "https://ifelx.pages.dev",
   },
+  {
+    title: "Ebook Reader App",
+    description:
+      "An Android eBook reader app built with Java and Firebase, allowing users to read and manage their eBook collection. This is a school project that got me into mobile development",
+    imageId: "/images/ebook-app.webp",
+    badge: [
+      <Badge key="ebook">eBook</Badge>,
+      <Badge key="android">Android</Badge>,
+      <Badge key="firebase">Firebase</Badge>,
+    ],
+    repo: "https://github.com/quangnguyenswe/EbookReaderApp",
+    unmaintained: true,
+  }
 ];
